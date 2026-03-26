@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重症血液吸附 · 备考速记</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a2342;
+  --blue: #1a4a8a;
+  --mid-blue: #2563b0;
+  --teal: #0891b2;
+  --teal-light: #e0f2fe;
+  --white: #ffffff;
+  --off-white: #f0f6ff;
+  --gray-100: #e8eef8;
+  --gray-200: #c8d8ee;
+  --gray-500: #64748b;
+  --gray-700: #334155;
+  --gold: #d4a017;
+  --success: #059669;
+  --danger: #dc2626;
+  --text: #0f172a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(ellipse at 10% 20%, rgba(26,74,138,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(8,145,178,0.06) 0%, transparent 50%);
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--mid-blue) 100%);
+  color: white;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -30px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 24px 28px;
+  position: relative;
+  z-index: 1;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.header h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+.header p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+}
+
+/* ─── NAV TABS ─── */
+.nav-tabs {
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-tabs-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 24px;
+}
+.nav-tab {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: rgba(255,255,255,0.8); }
+.nav-tab.active {
+  color: white;
+  border-bottom-color: var(--teal);
+}
+
+/* ─── MAIN CONTENT ─── */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+
+/* ─── SECTION: HOME ─── */
+.home-intro {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--gray-100);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.home-intro-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--teal-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.home-intro h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 3px;
+}
+.home-intro p { font-size: 12.5px; color: var(--gray-500); line-height: 1.5; }
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+.category-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--gray-100);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+.category-card:hover {
+  border-color: var(--gray-200);
+  box-shadow: 0 4px 20px rgba(10,35,66,0.10);
+  transform: translateY(-2px);
+}
+.cat-0::before { background: var(--mid-blue); }
+.cat-1::before { background: var(--teal); }
+.cat-2::before { background: #7c3aed; }
+.cat-3::before { background: #d97706; }
+.cat-4::before { background: var(--success); }
+
+.category-emoji { font-size: 24px; margin-bottom: 10px; }
+.category-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.category-sub { font-size: 11.5px; color: var(--gray-500); margin-bottom: 12px; }
+.category-count {
+  font-size: 11px;
+  color: var(--mid-blue);
+  font-weight: 500;
+  background: var(--teal-light);
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ─── SECTION: FLASHCARDS ─── */
+.flashcard-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--gray-700);
+  transition: all 0.18s;
+}
+.back-btn:hover { background: var(--gray-100); }
+.flashcard-section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.flashcard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.card-progress {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+.progress-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: var(--gray-100);
+  border-radius: 2px;
+  margin: 0 16px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--mid-blue));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.flashcard-container {
+  perspective: 1200px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.flashcard {
+  width: 100%;
+  min-height: 220px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 14px;
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  min-height: 220px;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 28px;
+  text-align: center;
+}
+.card-front {
+  background: white;
+  border: 1.5px solid var(--gray-100);
+  box-shadow: 0 2px 20px rgba(10,35,66,0.07);
+}
+.card-back {
+  background: linear-gradient(145deg, var(--navy) 0%, var(--blue) 100%);
+  transform: rotateY(180deg);
+  color: white;
+}
+.card-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+.card-back .card-label { color: rgba(255,255,255,0.5); }
+.card-question {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.7;
+}
+.card-answer {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.92);
+}
+.card-hint {
+  margin-top: 18px;
+  font-size: 11px;
+  color: var(--gray-500);
+}
+.card-back .card-hint { color: rgba(255,255,255,0.35); }
+
+.card-placeholder { min-height: 220px; }
+
+.flashcard-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.ctrl-btn {
+  flex: 1;
+  max-width: 140px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--gray-200);
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all 0.18s;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.ctrl-btn:hover { background: var(--gray-100); }
+.ctrl-btn.primary {
+  background: var(--mid-blue);
+  border-color: var(--mid-blue);
+  color: white;
+}
+.ctrl-btn.primary:hover { background: var(--blue); }
+
+/* All cards list below */
+.cards-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-list-item {
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.card-list-item:hover { border-color: var(--gray-200); box-shadow: 0 2px 10px rgba(10,35,66,0.07); }
+.card-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--teal-light);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.card-list-q { font-size: 13.5px; color: var(--navy); font-weight: 500; line-height: 1.5; }
+.card-list-a { font-size: 12px; color: var(--gray-500); margin-top: 4px; line-height: 1.5; display: none; }
+.card-list-item.open .card-list-a { display: block; }
+
+/* ─── SECTION: QUIZ ─── */
+.quiz-start {
+  text-align: center;
+  padding: 40px 20px;
+}
+.quiz-start h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.quiz-start p { color: var(--gray-500); font-size: 14px; margin-bottom: 24px; }
+.quiz-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.quiz-cat-btn {
+  padding: 14px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.18s;
+  font-family: 'Noto Sans SC', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.quiz-cat-btn:hover, .quiz-cat-btn.selected {
+  border-color: var(--mid-blue);
+  background: var(--teal-light);
+  color: var(--mid-blue);
+}
+.start-quiz-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--mid-blue), var(--teal));
+  color: white;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Noto Sans SC', sans-serif;
+  transition: opacity 0.18s;
+}
+.start-quiz-btn:hover { opacity: 0.9; }
+
+.quiz-question-wrap {
+  display: none;
+}
+.quiz-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.quiz-info { font-size: 13px; color: var(--gray-500); }
+.quiz-score-badge {
+  background: var(--teal-light);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.quiz-q-card {
+  background: white;
+  border: 1.5px solid var(--gray-100);
+  border-radius: 14px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 20px rgba(10,35,66,0.06);
+}
+.quiz-q-tag {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.quiz-q-text {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px;
+  color: var(--navy);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.quiz-option {
+  padding: 13px 18px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--gray-700);
+  transition: all 0.18s;
+  font-family: 'Noto Sans SC', sans-serif;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.quiz-option:hover:not(.disabled) { border-color: var(--mid-blue); background: var(--teal-light); }
+.quiz-option.correct { border-color: var(--success); background: #f0fdf4; color: var(--success); }
+.quiz-option.wrong { border-color: var(--danger); background: #fef2f2; color: var(--danger); }
+.quiz-option.disabled { cursor: not-allowed; }
+.opt-letter {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: var(--gray-700);
+}
+.quiz-option.correct .opt-letter { background: var(--success); color: white; }
+.quiz-option.wrong .opt-letter { background: var(--danger); color: white; }
+
+.quiz-explanation {
+  display: none;
+  background: var(--off-white);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.quiz-explanation.show { display: block; }
+.quiz-explanation strong { color: var(--navy); }
+
+.quiz-next-btn {
+  display: none;
+  width: 100%;
+  padding: 13px;
+  background: var(--mid-blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Noto Sans SC', sans-serif;
+  transition: background 0.18s;
+}
+.quiz-next-btn:hover { background: var(--blue); }
+.quiz-next-btn.show { display: block; }
+
+/* Result screen */
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+.result-circle {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Noto Serif SC', serif;
+  position: relative;
+}
+.result-circle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--teal) var(--pct), var(--gray-100) 0);
+}
+.result-inner {
+  position: relative;
+  z-index: 1;
+  width: 96px; height: 96px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.result-pct { font-size: 24px; font-weight: 700; color: var(--navy); }
+.result-label { font-size: 11px; color: var(--gray-500); }
+.result-message {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.result-sub { font-size: 14px; color: var(--gray-500); margin-bottom: 28px; }
+.result-actions { display: flex; gap: 12px; justify-content: center; }
+.res-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 1.5px solid var(--gray-200);
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all 0.18s;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.res-btn.primary {
+  background: var(--mid-blue);
+  border-color: var(--mid-blue);
+  color: white;
+}
+.res-btn:hover { opacity: 0.85; }
+
+/* HIDDEN */
+.hidden { display: none !important; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .nav-tab { padding: 12px 12px; font-size: 12px; }
+  .flashcard-controls { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-badge">🩸 重症医学 · ICU</div>
+    <h1>重症血液吸附 · 备考速记</h1>
+    <p>中国重症血液吸附专家指导意见（2025年）· 五大临床场景</p>
+  </div>
+</div>
+
+<div class="nav-tabs">
+  <div class="nav-tabs-inner">
+    <div class="nav-tab active" onclick="showSection('home')">📋 知识点</div>
+    <div class="nav-tab" onclick="showSection('cards')">🃏 闪卡</div>
+    <div class="nav-tab" onclick="showSection('quiz')">🎯 自测</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ══════════════ HOME ══════════════ -->
+  <div id="section-home">
+    <div class="home-intro">
+      <div class="home-intro-icon">💡</div>
+      <div>
+        <h3>本章核心：血液吸附五大适应证</h3>
+        <p>点击各场景卡片，进入该主题的闪卡学习；或切换至「自测」模式进行随机出题。</p>
+      </div>
+    </div>
+    <div class="categories-grid" id="categories-grid"></div>
+  </div>
+
+  <!-- ══════════════ FLASHCARDS ══════════════ -->
+  <div id="section-cards" class="hidden">
+    <div class="flashcard-header">
+      <button class="back-btn" onclick="showSection('home')">← 返回</button>
+      <div class="flashcard-section-title" id="fc-title"></div>
+    </div>
+
+    <div class="flashcard-nav">
+      <span class="card-progress" id="fc-progress">1 / 1</span>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="fc-bar" style="width:0%"></div></div>
+      <span style="font-size:12px;color:var(--gray-500)">点击卡片翻转</span>
+    </div>
+
+    <div class="flashcard-container" onclick="flipCard()">
+      <div class="flashcard" id="fc-card">
+        <div class="card-face card-front">
+          <div class="card-label">问题</div>
+          <div class="card-question" id="fc-question"></div>
+          <div class="card-hint">👆 点击查看答案</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">答案</div>
+          <div class="card-answer" id="fc-answer"></div>
+          <div class="card-hint">👆 点击返回问题</div>
+        </div>
+      </div>
+      <div class="card-placeholder"></div>
+    </div>
+
+    <div class="flashcard-controls">
+      <button class="ctrl-btn" onclick="prevCard()">← 上一张</button>
+      <button class="ctrl-btn primary" onclick="nextCard()">下一张 →</button>
+    </div>
+
+    <div class="cards-list" id="fc-list"></div>
+  </div>
+
+  <!-- ══════════════ QUIZ ══════════════ -->
+  <div id="section-quiz" class="hidden">
+    <!-- Start screen -->
+    <div id="quiz-start">
+      <div class="quiz-start">
+        <h2>🎯 自测模式</h2>
+        <p>选择要考核的场景（可多选），开始随机出题</p>
+        <div class="quiz-select-grid" id="quiz-cat-select"></div>
+        <button class="start-quiz-btn" onclick="startQuiz()">开始自测</button>
+      </div>
+    </div>
+
+    <!-- Question screen -->
+    <div class="quiz-question-wrap" id="quiz-question-wrap">
+      <div class="quiz-top">
+        <span class="quiz-info" id="quiz-progress-text">第 1 题 / 共 10 题</span>
+        <span class="quiz-score-badge" id="quiz-score-badge">得分: 0</span>
+      </div>
+      <div class="progress-bar-wrap" style="margin-bottom:20px">
+        <div class="progress-bar" id="quiz-progress-bar" style="width:0%"></div>
+      </div>
+
+      <div class="quiz-q-card">
+        <div class="quiz-q-tag" id="quiz-cat-tag">场景</div>
+        <div class="quiz-q-text" id="quiz-q-text">问题</div>
+      </div>
+
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-explanation" id="quiz-explanation"></div>
+      <button class="quiz-next-btn" id="quiz-next-btn" onclick="nextQuizQuestion()">下一题 →</button>
+    </div>
+
+    <!-- Result screen -->
+    <div class="quiz-result" id="quiz-result">
+      <div class="result-circle">
+        <div class="result-inner">
+          <div class="result-pct" id="result-pct">0%</div>
+          <div class="result-label">正确率</div>
+        </div>
+      </div>
+      <div class="result-message" id="result-message">完成自测！</div>
+      <div class="result-sub" id="result-sub"></div>
+      <div class="result-actions">
+        <button class="res-btn" onclick="resetQuiz()">重新选题</button>
+        <button class="res-btn primary" onclick="retryQuiz()">再来一次</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<script>
+// ════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════
+const categories = [
+  {
+    id: 0,
+    emoji: '🦠',
+    title: '脓毒症',
+    sub: 'Sepsis / 感染性休克',
+    cards: [
+      {
+        q: '脓毒症血液吸附的器官功能启动标准（3条，满足其一即可）？',
+        a: '① SOFA评分≥10分\n② SOFA评分在6h内增加≥2分\n③ 正在使用血管活性药物（去甲肾上腺素≥0.4μg/kg/min 或同等效价其他药物）'
+      },
+      {
+        q: '脓毒症血液吸附的炎症指标启动标准？',
+        a: '符合以下任一：\n① IL-6 > 500 pg/mL\n② IL-6 在6h内升高超过100%\n③ 细菌感染时，PCT ≥ 10 ng/mL'
+      },
+      {
+        q: '脓毒症何时应考虑启动血液吸附治疗？',
+        a: '在初始 Bundle 治疗后，病情仍未稳定或呈现恶化趋势时，综合评估器官功能和炎症指标后尽早启动。'
+      },
+      {
+        q: '血液吸附改善脓毒症血流动力学的可能机制？',
+        a: '通过削弱失控炎症反应，可稳定血流动力学、改善器官功能，降低血管活性药物用量及SOFA评分。'
+      },
+      {
+        q: '目前证据是否证明血液吸附可降低脓毒症病死率？',
+        a: '否。现有证据尚不足以证明血液吸附与脓毒症病死率改善直接相关，仍需更多大规模临床研究验证。'
+      },
+      {
+        q: '多黏菌素B（PMX）血液吸附在脓毒症中的证据现状？',
+        a: '降低脓毒症病死率的研究结果存在差异，部分研究证据质量较低，无法支持其广泛应用。'
+      }
+    ]
+  },
+  {
+    id: 1,
+    emoji: '🫀',
+    title: '重症急性胰腺炎',
+    sub: 'SAP / HTG-AP',
+    cards: [
+      {
+        q: 'SAP血液吸附的核心推荐意见是什么？',
+        a: '现有证据尚不足以证明与SAP临床结局改善直接相关，仍需大样本多中心RCT验证。血液吸附可能通过清除炎症介质、改善器官功能使患者获益。'
+      },
+      {
+        q: 'HTG-AP（高三酰甘油血症性急性胰腺炎）血液吸附的特点？',
+        a: '展现出双重清除特性：\n① 清除甘油三酯\n② 清除炎症因子（IL-6、IL-10等）\n可能缩短ICU住院时间（Mao等2003年首先证实）。'
+      },
+      {
+        q: 'SAP血液吸附的最佳启动时机是什么？',
+        a: '目前尚无明确研究。建议对炎症反应、器官功能和血流动力学状态进行综合评估，达到治疗指征后尽早启动。'
+      },
+      {
+        q: 'SAP早期致死的核心病理机制是什么？',
+        a: '以全身炎症反应综合征（SIRS）为特征，过度释放的炎症介质通过"瀑布样级联放大效应"引发多器官功能衰竭（MODS）。'
+      },
+      {
+        q: 'PACIFIC研究（德国）关于SAP血液吸附的主要发现？',
+        a: 'CytoSorb治疗组肾功能改善、血流动力学更稳定、IL-6等炎症因子更低；但为非随机设计（单中心单臂），结论可靠性受限。'
+      }
+    ]
+  },
+  {
+    id: 2,
+    emoji: '☠️',
+    title: '重症中毒',
+    sub: '有机磷 · 百草枯 · 毒蕈等',
+    cards: [
+      {
+        q: '血液吸附适用于哪类重症中毒？',
+        a: '脂溶性或蛋白结合率高的毒物，包括：\n有机磷农药、百草枯、敌草快、毒蕈\n丙戊酸、卡马西平等药物中毒'
+      },
+      {
+        q: '重症中毒血液吸附的推荐启动时机？',
+        a: '中毒早期（2～4h）启动。\n特别是百草枯中毒：口服后尽快行血液吸附，2～4h效果较好。'
+      },
+      {
+        q: '重症中毒何时考虑血液吸附联合透析/滤过？',
+        a: '当合并多器官功能障碍（MODS）或毒物血浓度较高时，可考虑联合血液透析/滤过。'
+      },
+      {
+        q: 'HA230吸附有机磷中毒的RCT证据是什么？',
+        a: 'Omar等开展的首项RCT发现：HA230可缩短ICU住院时间，降低28天病死率及严重并发症发生率。'
+      },
+      {
+        q: 'HA330吸附有机磷中毒（260例前瞻性队列）的主要发现？',
+        a: 'HA330可加速胆碱酯酶活性恢复，降低中间综合征发生率及病死率。'
+      },
+      {
+        q: '百草枯中毒的血液吸附特点（Shi等研究）？',
+        a: 'HA230对急性百草枯中毒毒物清除效果显著；反复血液吸附治疗可有效抑制反跳现象。'
+      }
+    ]
+  },
+  {
+    id: 3,
+    emoji: '❤️',
+    title: '心脏手术（CPB）',
+    sub: '体外循环相关炎症',
+    cards: [
+      {
+        q: '体外循环（CPB）为何需要考虑血液吸附？',
+        a: 'CPB可诱发炎症因子风暴，是心脏手术患者术后发生器官功能衰竭的重要因素。'
+      },
+      {
+        q: 'HA380用于CPB的单中心RCT（He等）主要结论？',
+        a: 'HA380可显著降低IL-6、IL-8、IL-10水平，同时减少血管活性药物使用量，缩短机械通气时间和ICU住院时间。'
+      },
+      {
+        q: 'REMOVE研究（CytoSorb用于感染性心内膜炎心脏手术）的结论？',
+        a: '纳入282例患者的多中心RCT。结果：血液吸附不能改善术后器官功能衰竭，对临床相关预后指标无显著影响（虽降低IL-1β和IL-18）。'
+      },
+      {
+        q: '心脏手术中CPB应用HA380是否有充分证据？',
+        a: '目前临床研究有限，长期效果仍需更多大规模临床研究验证，期待更大样本量的前瞻性RCT。'
+      }
+    ]
+  },
+  {
+    id: 4,
+    emoji: '💪',
+    title: '横纹肌溶解（RM）',
+    sub: 'Rhabdomyolysis · AKI',
+    cards: [
+      {
+        q: '横纹肌溶解启动血液吸附的肌红蛋白阈值？',
+        a: '① 血清肌红蛋白 > 10,000 ng/mL\n② 合并AKI时：肌红蛋白 > 5,000 ng/mL\n建议最好在入院24h内开始治疗。'
+      },
+      {
+        q: '无法测定肌红蛋白时，如何判断RM是否需要血液吸附？',
+        a: '若CK水平显著升高 + 典型症状 + 肾功能异常（即使无法测定肌红蛋白或超出检测上限3000ng/mL），也可考虑血液吸附。'
+      },
+      {
+        q: '肌红蛋白的分子量及常规RRT的清除局限？',
+        a: '肌红蛋白分子量约17,000 Da（属中大分子），常规肾脏替代治疗（RRT）对其清除效果有限，血液吸附是有效清除手段。'
+      },
+      {
+        q: 'CRRT联合HA380治疗RM的证据（Zhou等111例回顾性研究）？',
+        a: 'CRRT+HA380可显著降低横纹肌溶解并发AKI患者的ICU病死率和院内病死率，并对CK有清除作用，未显著增加不良事件。'
+      },
+      {
+        q: '横纹肌溶解血液吸附工作组（HRTF）对启动时机的推荐？',
+        a: '血清肌红蛋白超过阈值后应尽早开始，最好在入院24h内启动血液吸附治疗。'
+      }
+    ]
+  }
+];
+
+// ── QUIZ QUESTIONS ──
+const quizQuestions = [
+  // 脓毒症
+  { cat: '脓毒症', q: '脓毒症血液吸附治疗的器官功能指标：SOFA评分在几小时内增加≥2分，作为启动标准之一？', opts: ['A. 2h', 'B. 4h', 'C. 6h', 'D. 12h'], ans: 2, exp: '器官功能需符合：SOFA评分在6h内增加≥2分，为启动血液吸附的指征之一（满足SOFA≥10分、6h内升2分、或使用血管活性药物任一即可）。' },
+  { cat: '脓毒症', q: '脓毒症血液吸附中，去甲肾上腺素的参考剂量阈值是？', opts: ['A. ≥0.1 μg/kg/min', 'B. ≥0.2 μg/kg/min', 'C. ≥0.4 μg/kg/min', 'D. ≥0.8 μg/kg/min'], ans: 2, exp: '指导意见明确：正在使用血管活性药物（如去甲肾上腺素≥0.4μg/kg/min或同等效价的其他药物）作为器官功能评估指标之一。' },
+  { cat: '脓毒症', q: '脓毒症血液吸附炎症指标中，IL-6的绝对值阈值是？', opts: ['A. >100 pg/mL', 'B. >200 pg/mL', 'C. >300 pg/mL', 'D. >500 pg/mL'], ans: 3, exp: 'IL-6>500 pg/mL 或 IL-6在6h内升高超过100%，均可作为炎症指标启动标准，细菌感染时可参考PCT≥10 ng/mL。' },
+  { cat: '脓毒症', q: '目前2025年专家指导意见对血液吸附与脓毒症病死率的结论是？', opts: ['A. 证据充分，显著降低病死率', 'B. 证据尚不足，需大规模研究验证', 'C. 明确无效', 'D. 仅对儿童有效'], ans: 1, exp: '推荐意见明确指出：目前证据尚不足以证明血液吸附与脓毒症病死率改善直接相关，仍需更多大规模临床研究来验证。' },
+  // SAP
+  { cat: '重症急性胰腺炎', q: 'HTG-AP（高三酰甘油血症性急性胰腺炎）中，血液吸附被称为"双重清除"，指清除哪两类物质？', opts: ['A. 肌红蛋白 + 炎症因子', 'B. 甘油三酯 + 炎症因子', 'C. 毒素 + 细菌', 'D. 肌酸激酶 + 内毒素'], ans: 1, exp: 'HTG-AP中血液吸附展现出双重清除特性：同时清除甘油三酯和炎症因子（IL-6、IL-10等），首由Mao等（2003）证实。' },
+  { cat: '重症急性胰腺炎', q: 'SAP的早期病理生理核心特征是？', opts: ['A. 低血容量休克', 'B. 全身炎症反应综合征（SIRS）引起瀑布样炎症', 'C. 消化道大出血', 'D. 肾脏直接损伤'], ans: 1, exp: 'SAP早期以全身炎症反应综合征（SIRS）为特征，过度释放的炎症介质通过级联放大效应引发多器官功能衰竭，是早期死亡主因。' },
+  { cat: '重症急性胰腺炎', q: '目前国际SAP指南（IAP/APA、ACG等）对血液吸附的态度？', opts: ['A. 强烈推荐', 'B. 条件推荐', 'C. 均未纳入推荐方案', 'D. 仅推荐用于HTG-AP'], ans: 2, exp: '现阶段国内外SAP诊治指南（IAP/APA、ACG等）均未将血液吸附纳入推荐方案，循证证据主要来源于观察性研究。' },
+  // 中毒
+  { cat: '重症中毒', q: '百草枯中毒启动血液吸附的最佳时间窗是？', opts: ['A. 口服后1h内', 'B. 口服后2～4h', 'C. 口服后6～8h', 'D. 出现器官损害后'], ans: 1, exp: '2013年《急性百草枯中毒诊治专家共识》推荐：口服百草枯后应尽快行血液吸附，2～4h开展效果较好。' },
+  { cat: '重症中毒', q: '血液吸附清除毒物的主要适应类型是？', opts: ['A. 水溶性小分子毒物', 'B. 脂溶性或蛋白结合率高的毒物', 'C. 重金属', 'D. 气态毒物'], ans: 1, exp: '血液吸附对脂溶性或蛋白结合率高的毒物（如有机磷农药、百草枯、卡马西平等）清除效果好，这是其区别于血液透析的优势。' },
+  { cat: '重症中毒', q: 'HA330治疗有机磷中毒（260例前瞻性队列研究）的主要发现？', opts: ['A. 加速胆碱酯酶活性恢复，降低中间综合征发生率', 'B. 提高存活率，但不影响中间综合征', 'C. 无显著临床获益', 'D. 仅缩短住院时间'], ans: 0, exp: 'Li等260例前瞻性队列研究证实，HA330吸附可加速胆碱酯酶活性恢复，降低中间综合征发生率及病死率。' },
+  // CPB
+  { cat: '心脏手术（CPB）', q: 'REMOVE研究（CytoSorb用于感染性心内膜炎心脏手术）的主要结论？', opts: ['A. 显著降低术后死亡率', 'B. 不能改善术后器官功能衰竭', 'C. 可缩短ICU住院时间', 'D. 显著降低IL-6'], ans: 1, exp: 'REMOVE研究（282例多中心RCT）结果：血液吸附不能改善术后器官功能衰竭，对临床相关预后指标无显著影响（虽降低了IL-1β和IL-18）。' },
+  { cat: '心脏手术（CPB）', q: 'He等单中心RCT中，HA380用于瓣膜置换术CPB，降低的炎症因子包括哪些？', opts: ['A. IL-1、IL-2、IL-4', 'B. IL-6、IL-8、IL-10', 'C. TNF-α、IL-17、IL-22', 'D. PCT、CRP、IL-18'], ans: 1, exp: 'He等RCT（60例瓣膜置换术）显示：HA380可显著降低IL-6、IL-8、IL-10水平，同时减少血管活性药物用量，缩短机械通气时间和ICU住院时间。' },
+  // RM
+  { cat: '横纹肌溶解（RM）', q: '横纹肌溶解启动血液吸附的肌红蛋白标准：无AKI时阈值为？', opts: ['A. > 1,000 ng/mL', 'B. > 3,000 ng/mL', 'C. > 5,000 ng/mL', 'D. > 10,000 ng/mL'], ans: 3, exp: 'HRTF共识推荐：血清肌红蛋白>10,000 ng/mL时尽早开始血液吸附；合并AKI的患者，肌红蛋白>5,000 ng/mL即可启动。' },
+  { cat: '横纹肌溶解（RM）', q: '横纹肌溶解血液吸附的最佳启动时间窗？', opts: ['A. 出现症状2h内', 'B. 就诊后立即', 'C. 入院24h内', 'D. 肾功能出现异常后'], ans: 2, exp: '根据HRTF共识结合临床经验，对于符合指征的RM患者，血液吸附最好在入院24h内开始。' },
+  { cat: '横纹肌溶解（RM）', q: '肌红蛋白的分子量约为多少Da？常规RRT的局限是？', opts: ['A. 约500 Da，RRT无法清除', 'B. 约5,000 Da，RRT效率低', 'C. 约17,000 Da，RRT清除效果有限', 'D. 约65,000 Da，RRT完全无效'], ans: 2, exp: '肌红蛋白分子量约17,000 Da（属中大分子），常规肾脏替代治疗（RRT）对其清除效果有限，因此血液吸附成为有效的清除手段。' }
+];
+
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+let currentSection = 'home';
+let currentCatId = 0;
+let currentCardIdx = 0;
+let isFlipped = false;
+
+let quizPool = [];
+let quizIdx = 0;
+let quizScore = 0;
+let quizSelectedCats = [];
+
+// ════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════
+function init() {
+  // Build home categories
+  const grid = document.getElementById('categories-grid');
+  categories.forEach(cat => {
+    const div = document.createElement('div');
+    div.className = `category-card cat-${cat.id}`;
+    div.onclick = () => openCategory(cat.id);
+    div.innerHTML = `
+      <div class="category-emoji">${cat.emoji}</div>
+      <div class="category-title">${cat.title}</div>
+      <div class="category-sub">${cat.sub}</div>
+      <div class="category-count">${cat.cards.length} 张闪卡</div>
+    `;
+    grid.appendChild(div);
+  });
+
+  // Build quiz cat select
+  const sel = document.getElementById('quiz-cat-select');
+  categories.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-cat-btn selected';
+    btn.dataset.id = cat.id;
+    btn.innerHTML = `${cat.emoji} ${cat.title}`;
+    btn.onclick = () => {
+      btn.classList.toggle('selected');
+    };
+    sel.appendChild(btn);
+  });
+}
+
+// ════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════
+function showSection(name) {
+  ['home','cards','quiz'].forEach(s => {
+    document.getElementById('section-'+s).classList.toggle('hidden', s !== name);
+  });
+  document.querySelectorAll('.nav-tab').forEach((t,i) => {
+    t.classList.toggle('active', ['home','cards','quiz'][i] === name);
+  });
+  currentSection = name;
+  if (name === 'quiz') resetQuiz();
+}
+
+// ════════════════════════════════════════════
+// FLASHCARDS
+// ════════════════════════════════════════════
+function openCategory(id) {
+  currentCatId = id;
+  currentCardIdx = 0;
+  isFlipped = false;
+  const cat = categories[id];
+  document.getElementById('fc-title').textContent = `${cat.emoji} ${cat.title}`;
+  renderCard();
+  buildCardList();
+  showSection('cards');
+}
+
+function renderCard() {
+  const cat = categories[currentCatId];
+  const card = cat.cards[currentCardIdx];
+  isFlipped = false;
+  document.getElementById('fc-card').classList.remove('flipped');
+  document.getElementById('fc-question').textContent = card.q;
+  document.getElementById('fc-answer').style.whiteSpace = 'pre-line';
+  document.getElementById('fc-answer').textContent = card.a;
+  const pct = ((currentCardIdx+1)/cat.cards.length*100).toFixed(0);
+  document.getElementById('fc-progress').textContent = `${currentCardIdx+1} / ${cat.cards.length}`;
+  document.getElementById('fc-bar').style.width = pct + '%';
+}
+
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('fc-card').classList.toggle('flipped', isFlipped);
+}
+
+function nextCard() {
+  const cat = categories[currentCatId];
+  currentCardIdx = (currentCardIdx + 1) % cat.cards.length;
+  renderCard();
+}
+
+function prevCard() {
+  const cat = categories[currentCatId];
+  currentCardIdx = (currentCardIdx - 1 + cat.cards.length) % cat.cards.length;
+  renderCard();
+}
+
+function buildCardList() {
+  const cat = categories[currentCatId];
+  const list = document.getElementById('fc-list');
+  list.innerHTML = '<div style="font-size:12px;color:var(--gray-500);margin-bottom:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;">全部卡片（点击展开答案）</div>';
+  cat.cards.forEach((c, i) => {
+    const item = document.createElement('div');
+    item.className = 'card-list-item';
+    item.innerHTML = `
+      <div class="card-num">${i+1}</div>
+      <div style="flex:1">
+        <div class="card-list-q">${c.q}</div>
+        <div class="card-list-a" style="white-space:pre-line">${c.a}</div>
+      </div>
+    `;
+    item.onclick = () => {
+      item.classList.toggle('open');
+      currentCardIdx = i;
+      renderCard();
+    };
+    list.appendChild(item);
+  });
+}
+
+// ════════════════════════════════════════════
+// QUIZ
+// ════════════════════════════════════════════
+function resetQuiz() {
+  document.getElementById('quiz-start').style.display = 'block';
+  document.getElementById('quiz-question-wrap').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'none';
+  quizIdx = 0; quizScore = 0;
+}
+
+function startQuiz() {
+  const selectedBtns = document.querySelectorAll('.quiz-cat-btn.selected');
+  quizSelectedCats = Array.from(selectedBtns).map(b => parseInt(b.dataset.id));
+  if (quizSelectedCats.length === 0) {
+    alert('请至少选择一个场景');
+    return;
+  }
+  const catNames = quizSelectedCats.map(id => categories[id].title);
+  quizPool = shuffle(quizQuestions.filter(q => catNames.includes(q.cat)));
+  if (quizPool.length === 0) { alert('所选场景暂无题目'); return; }
+  quizIdx = 0; quizScore = 0;
+  document.getElementById('quiz-start').style.display = 'none';
+  document.getElementById('quiz-question-wrap').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const q = quizPool[quizIdx];
+  const total = quizPool.length;
+  document.getElementById('quiz-progress-text').textContent = `第 ${quizIdx+1} 题 / 共 ${total} 题`;
+  document.getElementById('quiz-score-badge').textContent = `得分: ${quizScore}`;
+  document.getElementById('quiz-progress-bar').style.width = (quizIdx/total*100)+'%';
+  document.getElementById('quiz-cat-tag').textContent = q.cat;
+  document.getElementById('quiz-q-text').textContent = q.q;
+  const optWrap = document.getElementById('quiz-options');
+  optWrap.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.innerHTML = `<span class="opt-letter">${letters[i]}</span><span>${opt}</span>`;
+    btn.onclick = () => checkAnswer(i, q.ans, q.exp);
+    optWrap.appendChild(btn);
+  });
+  document.getElementById('quiz-explanation').className = 'quiz-explanation';
+  document.getElementById('quiz-next-btn').className = 'quiz-next-btn';
+}
+
+function checkAnswer(chosen, correct, exp) {
+  const opts = document.querySelectorAll('.quiz-option');
+  opts.forEach((o,i) => {
+    o.classList.add('disabled');
+    if (i === correct) o.classList.add('correct');
+    else if (i === chosen && chosen !== correct) o.classList.add('wrong');
+  });
+  if (chosen === correct) quizScore++;
+  document.getElementById('quiz-score-badge').textContent = `得分: ${quizScore}`;
+  const expEl = document.getElementById('quiz-explanation');
+  expEl.innerHTML = `<strong>解析：</strong>${exp}`;
+  expEl.classList.add('show');
+  const nextBtn = document.getElementById('quiz-next-btn');
+  nextBtn.textContent = quizIdx < quizPool.length-1 ? '下一题 →' : '查看结果';
+  nextBtn.classList.add('show');
+}
+
+function nextQuizQuestion() {
+  quizIdx++;
+  if (quizIdx >= quizPool.length) {
+    showQuizResult();
+  } else {
+    renderQuizQuestion();
+  }
+}
+
+function showQuizResult() {
+  document.getElementById('quiz-question-wrap').style.display = 'none';
+  const result = document.getElementById('quiz-result');
+  result.style.display = 'block';
+  const pct = Math.round(quizScore / quizPool.length * 100);
+  document.getElementById('result-pct').textContent = pct + '%';
+  document.querySelector('.result-circle').style.setProperty('--pct', pct+'%');
+  let msg = '', sub = '';
+  if (pct >= 90) { msg = '🏆 优秀！掌握扎实'; sub = `答对 ${quizScore}/${quizPool.length} 题，临床应用没问题！`; }
+  else if (pct >= 70) { msg = '👍 良好，继续加油'; sub = `答对 ${quizScore}/${quizPool.length} 题，再巩固一下薄弱点。`; }
+  else if (pct >= 50) { msg = '📖 需要复习'; sub = `答对 ${quizScore}/${quizPool.length} 题，建议回看闪卡再来一次。`; }
+  else { msg = '💪 加油，多练习'; sub = `答对 ${quizScore}/${quizPool.length} 题，先仔细看知识点再自测。`; }
+  document.getElementById('result-message').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function retryQuiz() {
+  quizPool = shuffle(quizPool);
+  quizIdx = 0; quizScore = 0;
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-question-wrap').style.display = 'block';
+  renderQuizQuestion();
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+// ── run ──
+init();
+</script>
+</body>
+</html>
